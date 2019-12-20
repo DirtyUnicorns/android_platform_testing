@@ -13,15 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package android.platform.test.longevity;
+package android.platform.test.annotations;
 
-import org.junit.runner.Runner;
-import org.junit.runners.model.RunnerBuilder;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-/** A {@link RunnerBuilder} that uses {@link LongevityClassRunner} to run tests in a suite. */
-public class HealthRunnerBuilder extends RunnerBuilder {
-    @Override
-    public Runner runnerForClass(Class<?> testClass) throws Throwable {
-        return new LongevityClassRunner(testClass);
-    }
+/** Marks that the test is valid only when running against system user. */
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.METHOD, ElementType.TYPE})
+public @interface SystemUserOnly {
+    /** The reason why the test has to be run against system user. */
+    String reason() default "";
 }
