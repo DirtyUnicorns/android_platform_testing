@@ -14,6 +14,7 @@
 
 instrumentation_metric_tests := \
     AutofillPerfTests \
+    BlobStorePerfTests \
     crashcollector \
     CorePerfTests \
     DocumentsUIAppPerfTests \
@@ -23,6 +24,7 @@ instrumentation_metric_tests := \
     MultiUserPerfDummyApp \
     MultiUserPerfTests \
     NeuralNetworksApiBenchmark \
+    PackageManagerPerfTests \
     TextClassifierPerfTests
 
     # TODO(b/72332760): Uncomment when fixed
